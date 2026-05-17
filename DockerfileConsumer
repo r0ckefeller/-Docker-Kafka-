@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /build
-COPY CMakeListsConsumer.txt mainConsumer.cpp ./
+COPY CMakeLists.txt mainConsumer.cpp ./
 RUN cmake -DCMAKE_BUILD_TYPE=Release . && make -j"$(nproc)"
 
 FROM debian:bookworm-slim
